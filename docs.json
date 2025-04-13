@@ -11,10 +11,10 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Основная информация",
+        "tab": "основная информация",
         "groups": [
           {
-            "group": "✨ ИНФОРМАЦИЯ",
+            "group": "✨ информация",
             "pages": [
               "introduction",
               "rules",
@@ -23,7 +23,7 @@
             ]
           },
           {
-            "group": "⏳ СУДЫ",
+            "group": "⏳ суды",
             "pages": [
               "courts/intro",
               "courts/appelyacii"
@@ -32,10 +32,10 @@
         ]
       },
       {
-        "tab": "Механики / команды",
+        "tab": "механики / команды",
         "groups": [
           {
-            "group": "🔮 Механики",
+            "group": "🔮 механики",
             "pages": [
               "mechanics/elytryas",
               "mechanics/ramks",
@@ -55,7 +55,7 @@
           },
 
           {
-            "group": "🔮 Команды",
+            "group": "🔮 команды",
             "pages": [
               "commands/skins",
               "commands/chats",
@@ -71,17 +71,17 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Подать заявку",
+          "anchor": "подать заявку",
           "href": "https://new.onevanila.fun",
           "icon": "play"
         },
         {
-          "anchor": "Наш телегарм",
+          "anchor": "наш телегарм",
           "href": "https://t.me/onevanilamc",
           "icon": "telegram"
         },
         {
-          "anchor": "Наш дискорд",
+          "anchor": "наш дискорд",
           "href": "https://dsc.onevanila.fun",
           "icon": "discord"
         }
