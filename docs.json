@@ -3,53 +3,66 @@
   "theme": "mint",
   "name": "OneVanila",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#F1BB2D",
+    "light": "#FEF19C",
+    "dark": "#655C27"
   },
   "favicon": "/favicon.ico",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "основная информация",
         "groups": [
           {
-            "group": "✨ ИНФОРМАЦИЯ",
+            "group": "✨ информация",
             "pages": [
               "introduction",
-              "quickstart",
-              "development"
+              "rules",
+              "marya",
+              "telegram"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "⏳ суды",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "courts/intro",
+              "courts/appelyacii"
             ]
           }
         ]
       },
       {
-        "tab": "API Reference",
+        "tab": "механики / команды",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "🔮 механики",
             "pages": [
-              "api-reference/introduction"
+              "mechanics/elytryas",
+              "mechanics/ramks",
+              "mechanics/sit",
+              "mechanics/shulkes",
+              "mechanics/creepers",
+              "mechanics/heads",
+              "mechanics/brewery",
+              "mechanics/coreprotect",
+              "mechanics/crafts",
+              "mechanics/tab",
+              "mechanics/iak",
+              "mechanics/bambouk",
+              "mechanics/fishing",
+              "mechanics/raid"
             ]
           },
+
           {
-            "group": "Endpoint Examples",
+            "group": "🔮 команды",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "commands/skins",
+              "commands/chats",
+              "commands/image",
+              "commands/afk",
+              "commands/lore",
+              "commands/plew"
             ]
           }
         ]
@@ -58,45 +71,38 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "подать заявку",
+          "href": "https://new.onevanila.fun",
+          "icon": "play"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "anchor": "наш телегарм",
+          "href": "https://t.me/onevanilamc",
+          "icon": "telegram"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "наш дискорд",
+          "href": "https://dsc.onevanila.fun",
+          "icon": "discord"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Поддержать нас :3",
+        "href": "https://yoomoney.ru/fundraise/185GM4N2D5M.250202"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+      "discord": "https://dsc.onevanila.fun/",
+      "telegram": "https://t.me/onevanilamc"    }
   }
 }
