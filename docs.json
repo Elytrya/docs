@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "OneVanila",
   "colors": {
-    "primary": "#F1BB2D",
-    "light": "#FEF19C",
-    "dark": "#655C27"
+    "primary": "#F9A3D2",
+    "light": "#F9A3D2",
+    "dark": "#FB56F8"
   },
   "favicon": "/favicon.ico",
   "navigation": {
@@ -45,12 +45,12 @@
               "mechanics/heads",
               "mechanics/brewery",
               "mechanics/coreprotect",
-              "mechanics/crafts",
               "mechanics/tab",
-              "mechanics/iak",
-              "mechanics/bambouk",
-              "mechanics/fishing",
-              "mechanics/raid"
+              "mechanics/nicknames",
+              "mechanics/mcpaint",
+              "mechanics/boardgames",
+              "mechanics/catenary",
+              "mechanics/voleyball"
             ]
           },
 
@@ -89,8 +89,8 @@
     }
   },
   "logo": {
-    "light": "/logo/light.png",
-    "dark": "/logo/dark.png"
+    "light": "https://dl.onevanila.fun/browse/logo.png",
+    "dark": "https://dl.onevanila.fun/browse/logo.png"
   },
   "navbar": {
     "links": [
