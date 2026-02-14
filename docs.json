@@ -1,0 +1,138 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "onevnl",
+  "colors": {
+    "primary": "#F9A3D2",
+    "light": "#F9A3D2",
+    "dark": "#FB56F8"
+  },
+  "favicon": "/favicon.ico",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "основная информация",
+        "groups": [
+          {
+            "group": "информация",
+            "pages": [
+              "introduction",
+              "rules",
+              "marya",
+              "telegram",
+              "sponsors"
+            ]
+          },
+          {
+            "group": "cуды",
+            "pages": [
+              "courts/intro",
+              "courts/appelyacii"
+            ]
+          }
+        ]
+      },
+
+      {
+        "tab": "механики / команды",
+        "groups": [
+          {
+            "group": "механики",
+            "pages": [
+              "mechanics/elytryas",
+              "mechanics/ramks",
+              "mechanics/sit",
+              "mechanics/shulkes",
+              "mechanics/creepers",
+              "mechanics/heads",
+              "mechanics/brewery",
+              "mechanics/coreprotect",
+              "mechanics/tab",
+              "mechanics/nicknames",
+              "mechanics/mcpaint",
+              "mechanics/boardgames",
+              "mechanics/catenary",
+
+              "mechanics/kamnerez",
+              "mechanics/furnace",
+              "mechanics/map",
+              "mechanics/chat",
+              "mechanics/skins",
+              "mechanics/plew",
+              "mechanics/clans",
+              "mechanics/image",
+              "mechanics/afk",
+              "mechanics/lore",
+              "mechanics/plasmovoice",
+              "mechanics/bedrock",
+              "mechanics/phantoms",
+              "mechanics/rp",
+              "mechanics/playtime",
+              "mechanics/plants",
+              "mechanics/stuck",
+              "mechanics/avil",
+              "mechanics/wood"
+            ]
+          }
+
+
+
+        ]
+      },
+          {
+            "tab": "лор",
+            "groups": [
+              {
+                "group": "лор",
+                "pages": [
+                  "lore/intro"
+                ]
+              },
+              {
+                "group": "4 сезон",
+                "pages": [
+                  "seasons/fourth"
+                ]
+              }
+            ]
+
+          }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "подать заявку",
+          "href": "https://www.onevnl.fun/land/new",
+          "icon": "play"
+        },
+        {
+          "anchor": "наш телегарм",
+          "href": "https://t.me/onevnl",
+          "icon": "telegram"
+        },
+        {
+          "anchor": "наш дискорд",
+          "href": "https://dsc.gg/onevnl",
+          "icon": "discord"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "https://onevnl.store/storage/l1ogo.png",
+    "dark": "https://onevnl.store/storage/l1ogo.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Поддержать нас :3",
+        "href": "https://boosty.to/onevanilamc"
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "discord": "https://dsc.gg/onevnl",
+      "telegram": "https://t.me/onevnl"    }
+  }
+}
