@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alice - Chat AI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background-color: #000;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    /* Сайдбар */
+    .sidebar {
+      width: 250px;
+      background-color: #111;
+      border-right: 1px solid #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      justify-content: space-between;
+    }
+
+    .users-list {
+      flex: 1;
+      overflow-y: auto;
+      padding-bottom: 10px;
+    }
+
+    .user-card {
+      display: flex;
+      flex-direction: column;
+      background-color: #222;
+      border-radius: 15px;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .user-card.active, .user-card:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .user-id {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-bottom: 5px;
+    }
+
+    .last-msg {
+      font-size: 0.9rem;
+      color: inherit;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Текущий пользователь внизу сайдбара */
+    .current-user {
+      background-color: #222;
+      border-radius: 15px;
+      padding: 10px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .current-user .info {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .current-user button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .current-user button:hover {
+      background-color: #000;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+
+    /* Основной чат */
+    .chat-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid #fff;
+    }
+
+    .chat-header {
+      padding: 15px;
+      border-bottom: 1px solid #fff;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #111;
+    }
+
+    .message {
+      padding: 10px 15px;
+      border-radius: 12px;
+      max-width: 75%;
+      word-wrap: break-word;
+    }
+
+    .user {
+      background-color: #fff;
+      color: #000;
+      align-self: flex-end;
+    }
+
+    .alice {
+      background-color: #222;
+      color: #fff;
+      align-self: flex-start;
+      border: 1px solid #fff;
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #fff;
+    }
+
+    .chat-input textarea {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      background-color: #111;
+      color: #fff;
+      font-size: 1rem;
+      resize: none;
+      height: 60px;
+      border-radius: 0;
+    }
+
+    .chat-input button {
+      padding: 0 20px;
+      border: none;
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .chat-input button:hover {
+      background-color: #000;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="users-list" id="users"></div>
+
+    <div class="current-user" id="current-user">
+      <div class="info" id="current-user-name">root</div>
+      <div class="info" id="current-user-id">#10371</div>
+      <div class="info" id="current-user-email">onecorpsec@proton.me</div>
+      <button onclick="logout()">Выход</button>
+    </div>
+  </div>
+
+  <div class="chat-container">
+    <div class="chat-header" id="chat-header"></div>
+    <div class="chat-messages" id="messages"></div>
+    <div class="chat-input">
+      <textarea id="prompt" placeholder="Введите ваш промпт..."></textarea>
+      <button onclick="sendMessage()">Отправить</button>
+    </div>
+  </div>
+
+  <script>
+    const usersEl = document.getElementById('users');
+    const messagesEl = document.getElementById('messages');
+    const chatHeader = document.getElementById('chat-header');
+    const promptInput = document.getElementById('prompt');
+
+    const currentUserNameEl = document.getElementById('current-user-name');
+    const currentUserIdEl = document.getElementById('current-user-id');
+    const currentUserEmailEl = document.getElementById('current-user-email');
+
+    // Пример пользователей
+    const users = [
+      { id: 'root', name: 'Root', email: 'root@example.com', lastMsg: 'Привет! Как дела...' },
+      { id: 'alice', name: 'Alice', email: 'alice@example.com', lastMsg: 'Я готова обсудить тему...' },
+      { id: 'guest', name: 'Guest', email: 'guest@example.com', lastMsg: 'Присоединился к чату...' },
+    ];
+
+    const chats = {
+      root: [
+        { sender: 'alice', text: 'Привет! Я Alice, твоя нейросеть.' },
+        { sender: 'user', text: 'Привет, Alice! Покажи пример диалога.' },
+        { sender: 'alice', text: 'Конечно! Можем обсудить любую тему...' }
+      ],
+      alice: [
+        { sender: 'alice', text: 'Это чат с другим персонажем.' },
+        { sender: 'user', text: 'Понял, давай поиграем.' }
+      ],
+      guest: [
+        { sender: 'alice', text: 'Гость присоединился к чату.' },
+      ]
+    };
+
+    let currentUser = 'root';
+
+    function renderUsers() {
+      usersEl.innerHTML = '';
+      users.forEach(u => {
+        const div = document.createElement('div');
+        div.classList.add('user-card');
+        if(u.id === currentUser) div.classList.add('active');
+        div.dataset.user = u.id;
+        div.innerHTML = `
+          <div class="user-name">${u.name}</div>
+          <div class="user-id">${u.id}</div>
+          <div class="last-msg">${u.lastMsg}</div>
+        `;
+        div.addEventListener('click', () => {
+          currentUser = u.id;
+          document.querySelectorAll('.user-card').forEach(c => c.classList.remove('active'));
+          div.classList.add('active');
+          loadChat(currentUser);
+          updateCurrentUserInfo();
+        });
+        usersEl.appendChild(div);
+      });
+    }
+
+    function loadChat(user) {
+      messagesEl.innerHTML = '';
+      chatHeader.textContent = `${user}`;
+      chats[user].forEach(msg => {
+        const div = document.createElement('div');
+        div.classList.add('message', msg.sender === 'user' ? 'user' : 'alice');
+        div.textContent = msg.text;
+        messagesEl.appendChild(div);
+      });
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function sendMessage() {
+      const text = promptInput.value.trim();
+      if (!text) return;
+
+      const userMsg = { sender: 'user', text };
+      chats[currentUser].push(userMsg);
+
+      const userDiv = document.createElement('div');
+      userDiv.classList.add('message', 'user');
+      userDiv.textContent = text;
+      messagesEl.appendChild(userDiv);
+
+      const aliceText = "Alice: " + text.split('').reverse().join('');
+      const aliceMsg = { sender: 'alice', text: aliceText };
+      chats[currentUser].push(aliceMsg);
+
+      const aliceDiv = document.createElement('div');
+      aliceDiv.classList.add('message', 'alice');
+      aliceDiv.textContent = aliceText;
+      messagesEl.appendChild(aliceDiv);
+
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+      promptInput.value = '';
+    }
+
+    function updateCurrentUserInfo() {
+      const user = users.find(u => u.id === currentUser);
+    }
+
+    function logout() {
+      alert('Выход выполнен для ' + currentUser);
+    }
+
+    renderUsers();
+    loadChat(currentUser);
+    updateCurrentUserInfo();
+  </script>
+
+</body>
+</html>
