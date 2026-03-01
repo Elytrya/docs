@@ -35,48 +35,72 @@
       {
         "tab": "механики / команды",
         "groups": [
-          {
-            "group": "механики",
+                    {
+            "group": "механики с модами",
             "pages": [
               "mechanics/patpat",
               "mechanics/models",
-              "mechanics/plasmovoice",
               "mechanics/emotecraft",
+              "mechanics/streamnotes",
+              "mechanics/plasmovoice"
+            ]
+          },
+          {
+            "group": "высокое влияние",
+            "pages": [
               "mechanics/elytryas",
+              "mechanics/coreprotect",
+              "mechanics/map",
+              "mechanics/phantoms",
+              "mechanics/creepers",
+              "mechanics/chat",
+              "mechanics/bedrock",
+              "mechanics/clans",
+              "mechanics/nicknames",
+              "mechanics/vilagers"
+            ]
+          },
+          {
+            "group": "среднее влияние",
+            "pages": [
               "mechanics/ramks",
               "mechanics/sit",
-              "mechanics/shulkes",
-              "mechanics/creepers",
               "mechanics/heads",
-              "mechanics/brewery",
-              "mechanics/coreprotect",
               "mechanics/tab",
-              "mechanics/nicknames",
-              "mechanics/mcpaint",
-              "mechanics/lupa",
-              "mechanics/leaves",
-              "mechanics/beton",
+              "mechanics/brewery",
               "mechanics/boardgames",
+              "mechanics/mcpaint",
               "mechanics/catenary",
+              "mechanics/skins",
               "mechanics/resource",
+              "mechanics/image",
+              "mechanics/leaves",
               "mechanics/kamnerez",
               "mechanics/furnace",
-              "mechanics/map",
-              "mechanics/chat",
-              "mechanics/skins",
+              "mechanics/debugstick"
+            ]
+          },
+          {
+            "group": "низкое влияние",
+            "pages": [
+              "mechanics/shulkes",
+              "mechanics/expansive",
+              "mechanics/template",
+              "mechanics/light",
+              "mechanics/beton",
               "mechanics/plew",
-              "mechanics/clans",
-              "mechanics/image",
               "mechanics/afk",
               "mechanics/lore",
-              "mechanics/bedrock",
-              "mechanics/phantoms",
               "mechanics/rp",
               "mechanics/playtime",
               "mechanics/plants",
               "mechanics/stuck",
               "mechanics/avil",
-              "mechanics/wood"
+              "mechanics/wood",
+              "mechanics/shulker",
+              "mechanics/door",
+              "mechanics/boat",
+              "mechanics/yakor"
             ]
           }
 
